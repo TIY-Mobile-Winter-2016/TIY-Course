@@ -40,11 +40,11 @@ You will be living in [Xcode 7](https://itunes.apple.com/us/app/xcode/id49779983
 
 - [Dash 3 API + Docs](https://itunes.apple.com/us/app/dash-3-api-docs-snippets./id449589707?mt=12)
 
-[Swift Book on iBooks](https://itunes.apple.com/us/book/swift-programming-language/id881256329?mt=11) as an electronic book. Download the iBook for your Mac or iOS device to use as reference during the class.
+- Install the [Swift Programming Language Book](https://itunes.apple.com/us/book/swift-programming-language/id881256329?mt=11) as an electronic book. Download the iBook for your Mac or iOS device to use as reference during the class.
 
 ###Tasks To Do
 
-Wait for everyone to get the apps installed and then we will discuss the following task list:
+- We will discuss the following task list:
 
 ```markdown
 
