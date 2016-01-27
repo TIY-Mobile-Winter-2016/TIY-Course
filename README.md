@@ -29,9 +29,9 @@ Once you do, I'll invite you to [a group for our class](https://github.com/orgs/
 
 Next, get acquainted by poking around a bit, paying special attention to [the class wiki](https://github.com/TIY-Mobile-Winter-2016/TIY-Course/wiki). 
 
-There's some important information there about how to turn in assignments and how I'll grade them. Afterward, get started on **This is Heavy**, _due the first day of class_.
+There's some important information there about how to turn in assignments and how I'll grade them. Afterward, get started on **Developers Awaken**, _due the first day of class_.
 
-You will notice a series of folders with numbers in their titles in the repo. This is where all homework assignments, notes, the day's agenda, etc. will be posted. We will have one folder for each lecutre day. Some will contain actual Xcode projects while others will be just some source code and/or tips/hints used to solve the problem at hand.
+You will notice a series of folders with numbers in their titles in the repo. This is where all homework assignments, notes, the day's agenda, etc. will be posted. We will have one folder for each lecture day. Some will contain actual Xcode projects while others will be just some source code and/or tips/hints used to solve the problem at hand.
 
 Throughout the course, you'll open, close, and contribute to Issues and Pull Requests ([more about "issues" on Github](https://help.github.com/articles/about-issues)). By the end, you'll all be Github experts!
 
@@ -47,6 +47,6 @@ You're about to take the first step of many on the road to becoming a full fledg
 ###Task List
 
     * [ ] Have Github username
-    * [ ] Looked at github repository **This is Heavy**
+    * [ ] Looked at github repository TIY-Course/00- Developers Awaken
  
  

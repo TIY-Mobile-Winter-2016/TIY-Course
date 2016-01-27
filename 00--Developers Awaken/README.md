@@ -10,11 +10,11 @@ Today we want to get your laptop ready for Day 1 of the course.
 
 Below is a list of tasks for you to do today. 
 
-## Your Workstation
+## Your Laptop
 
-Other than your brain, the most important tool you will use is your workstation. Making sure it is properly set up is extremely important. This is the reason we do this install party. Here are some things you'll need to make sure you have.
+Other than your brain, the most important tool you will use is your macbook. Making sure it is properly set up is extremely important. This is the reason we do this install party. Here are some things you'll need to make sure you have.
 
-- Macbook Air or Pro running the latest [OSX](https://itunes.apple.com/us/app/os-x-el-capitan/id1018109117?mt=12)
+- Macbook Air or Pro running the latest [OS X](https://itunes.apple.com/us/app/os-x-el-capitan/id1018109117?mt=12)
 
 - Clean up your machine. Those of you who have not started with a new machine, take some time to clean up your desktop and even your file system if possible.
 
