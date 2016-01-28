@@ -24,9 +24,9 @@ Other than your brain, the most important tool you will use is your macbook. Mak
 
 You will be living in [Xcode 7](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) for 12 straight weeks. Xcode is much more than a text editor, and you will need to do more than just write code within it. You will need to get comfortable with navigating this IDE. Go ahead and sign up as an **Individual** for the Apple Developer program.
 
-- Signup for [Apple Developer](https://developer.apple.com/programs/)
+- Sign up for an [Apple Developer](https://developer.apple.com/programs/) Account.
 
-- [Xcode 7](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)(make sure you download the latest from the Mac app store)
+- [Xcode 7](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) (make sure you download the latest from the Mac app store)
 
 ## Apps to Install
 
