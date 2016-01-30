@@ -4,6 +4,7 @@
 ###Install These Apps
 
 * [Xcode 7.2](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
+* [Slack](https://itunes.apple.com/us/app/slack/id803453959?mt=12)
 * [Atom.io](https://atom.io/)
 * [Github Desktop](https://desktop.github.com/)
 * [iTerm2](https://www.iterm2.com/downloads.html)
@@ -25,6 +26,7 @@
 ###Weekly Newsletters
 * [iOSDevWeekly](https://iosdevweekly.com/issues/235)
 * [This Week in Swift](https://swiftnews.curated.co/)
+* [SwiftDevWeekly](http://swiftdevweekly.co)
 
 ###Blogs
 * [NSHipster](http://nshipster.com/)
