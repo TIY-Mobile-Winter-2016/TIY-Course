@@ -1,4 +1,14 @@
 #iOS Developer Resources
+##Install Party 1/30/2016
+
+###Install These Apps
+
+* [Xcode 7.2](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
+* [Atom.io](https://atom.io/)
+* [Github Desktop](https://desktop.github.com/)
+* [iTerm2](https://www.iterm2.com/downloads.html)
+* [Dash Mac](https://kapeli.com/dash)
+* [MacDown](http://macdown.uranusjr.com/)
 
 ###Required Reading
 * [The Swift Programming Language](https://itunes.apple.com/us/book/the-swift-programming-language/id1002622538?mt=11)
