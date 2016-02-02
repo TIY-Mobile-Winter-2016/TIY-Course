@@ -5,19 +5,31 @@
 
 // Remember to expand the console
 
-func myFirstFunction(numberOfTimes: Int) {
-    for _ in 1...numberOfTimes {
-        print("hello", terminator: ",")
+func isEven(value: Int) -> Bool {
+    return value % 2 == 0
+}
+
+func isOdd(value: Int) -> Bool {
+    return value % 2 == 1
+}
+
+isEven(2)
+isOdd(2)
+isOdd(5)
+
+let arrayOfNumbers = [1,2,3,4,5,6,7,8]
+
+func sum(arrayOfNumbers: [Int]) -> Int {
+    var sumTotal = 0
+    
+    for number in arrayOfNumbers {
+        sumTotal = sumTotal + number
     }
+    
+    return sumTotal
 }
 
-myFirstFunction(5)
-
-func times(num1: Int, num2: Int) -> Int {
-    return num1 * num2
-}
-
-times(5,num2: 6)
+sum(arrayOfNumbers)
 
 
 
