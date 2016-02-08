@@ -1,16 +1,17 @@
-### Which of the following would produce an error?
+### Given all of the statements in a playground, which of the following would produce an error?
 
-1. ```let a = 42```
-1. ```let b: Double = 100.25```
-1. ```let c = a + b```
-1. ```let d = a + 12```
-
+```swift
+let a = 42
+let b: Double = 100.25
+let c = a + b
+let d = a + 12
+```
 ### What does the showBirthdayMessage function print to the console?
 
 ```swift
 func happyBirthday(age: Int) -> Int
 {
-    age++;
+    age = age + 1;
     return age;
 }
 
@@ -26,6 +27,7 @@ func showBirthdayMessage()
 
 ```swift
 let dateFormatter = NSDateFormatter()
+
 dateFormatter.dateStyle = NSDateFormatterStyle.shortStyle
 
 let today = NSDate()
