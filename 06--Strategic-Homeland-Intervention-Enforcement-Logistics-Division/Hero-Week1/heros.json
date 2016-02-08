@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Thor",
+    "homeworld": "Asgard",
+    "powers": "Superhuman strength, endurance, and longevity; abilities via Mjolnir: dimensional transportation; electric manipulation; flight; weather manipulation"
+  },
+  {
+    "name": "Iron Man",
+    "homeworld": "Earth",
+    "powers": "Genius-level intellect; highly proficient scientist, engineer, and businessperson; via powered armored suit: superhuman strength and durability; supersonic flight at Mach 3; energy repulsors; missiles; regenerative life support (sometimes powered by solar power)"
+  },
+  {
+    "name": "Groot",
+    "homeworld": "Planet X",
+    "powers": "Ability to absorb wood to feed, rebuild self, enhance his strength and control trees; regeneration; resistance to fire"
+  },
+  {
+    "name": "Rocket Racoon",
+    "homeworld": "Halfworld",
+    "powers": "Genius-level intellect; master tactician and field commander; expert marksman and sniper; accomplished starship aviator; normal-physical attributes of an Earth raccoon"
+  },
+  {
+    "name": "Drax the Destroyer",
+    "homeworld": "Earth",
+    "powers": "Superhuman strength; stamina and resistance to injury; highly skilled in use of knives"
+  },
+  {
+    "name": "Star-Lord",
+    "homeworld": "Earth",
+    "powers": "Master strategist and problem solver; skilled marksman and fencer; use of element gun; via suit: superhuman strength and durability; flight; ability to travel through space"
+  },
+  {
+    "name": "Gamora",
+    "homeworld": "Zen-Whoberi",
+    "powers": "Highly skilled assassin and gymnast; skilled martial artist; superhuman strength, speed, agility and durability; accelerated healing factor"
+  },
+  {
+    "name": "Hulk",
+    "homeworld": "Earth",
+    "powers": "Bruce Banner: Genius-level intellect; Hulk: immense superhuman strength, stamina, durability, endurance, longevity, regenerative healing factor"
+  },
+  {
+    "name": "Captain America",
+    "homeworld": "Earth",
+    "powers": "Peak physical condition; wields vibranium-steel alloy shield; expert tactician and field commander"
+  }
+]
