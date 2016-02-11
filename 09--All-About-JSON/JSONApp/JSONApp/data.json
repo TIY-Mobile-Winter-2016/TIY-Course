@@ -1,6 +1,7 @@
 {
-    "dataTitle": "JSON Tutorial!",
+    "title": "Swift 2.1 JSON Parsing",
     "swiftVersion": 2.1,
+    "completed-date": "2016-02-11T19:32:00Z",
     "users": [
               {
               "name": "John",

@@ -42,7 +42,7 @@ class ViewController: UIViewController {
                 }
             } catch {
                 // Handle Error
-                print("Something Went Wrong")
+                print("Data Error - Unable to parse the original jsonString")
             }
         }
     }
@@ -52,12 +52,16 @@ class ViewController: UIViewController {
         
         print("\n\n------------------Finally Parsed!-------------\n\n")
         
-        if let dataTitle = dict["dataTitle"] as? String {
-            print(dataTitle)
+        if let title = dict["title"] as? String {
+            print(title)
         }
         
         if let swiftVersion = dict["swiftVersion"] as? Float {
             print(swiftVersion)
+        }
+        
+        if let completedDate = dict["completed-date"] as? String {
+            print(completedDate)
         }
         
         if let users = dict["users"] as? JSONArray {
