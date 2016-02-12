@@ -43,7 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let cell = UITableViewCell()
         
-        var currentCharacter: Stringa
+        var currentCharacter: String = ""
         
         switch indexPath.section {
         case 0:
