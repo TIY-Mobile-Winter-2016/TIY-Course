@@ -16,6 +16,7 @@
 		5E4AA64F1C775312000B63BF /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4AA64E1C775312000B63BF /* TwoViewController.swift */; };
 		5E4AA6511C77531A000B63BF /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4AA6501C77531A000B63BF /* ThreeViewController.swift */; };
 		5E4AA6531C7754D6000B63BF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4AA6521C7754D6000B63BF /* Restaurant.swift */; };
+		5E4D70611C7770B9005FCC6D /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D70601C7770B9005FCC6D /* data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		5E4AA64E1C775312000B63BF /* TwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
 		5E4AA6501C77531A000B63BF /* ThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
 		5E4AA6521C7754D6000B63BF /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		5E4D70601C7770B9005FCC6D /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				5E4AA64C1C77530A000B63BF /* OneViewController.swift */,
 				5E4AA64E1C775312000B63BF /* TwoViewController.swift */,
 				5E4AA6501C77531A000B63BF /* ThreeViewController.swift */,
+				5E4D70601C7770B9005FCC6D /* data.json */,
 				5E4AA63E1C7752E0000B63BF /* Main.storyboard */,
 				5E4AA6411C7752E0000B63BF /* Assets.xcassets */,
 				5E4AA6431C7752E0000B63BF /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 				5E4AA6451C7752E0000B63BF /* LaunchScreen.storyboard in Resources */,
 				5E4AA6421C7752E0000B63BF /* Assets.xcassets in Resources */,
 				5E4AA6401C7752E0000B63BF /* Main.storyboard in Resources */,
+				5E4D70611C7770B9005FCC6D /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +304,7 @@
 				5E4AA64B1C7752E0000B63BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

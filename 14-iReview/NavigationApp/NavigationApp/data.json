@@ -1,0 +1,52 @@
+{
+  "restaurants": [
+    {
+      "name": "Olive Garden",
+      "description": "Olive Garden is an American casual dining restaurant chain specializing in Italian-American cuisine. It is a subsidiary of Darden Restaurants, Inc., which is headquartered in unincorporated Orange County, Florida, near Orlando.",
+      "image": "oliveGarden",
+      "location": "coordinates",
+      "menus": [
+        {
+          "name": "Menu 1",
+          "dishes": [
+            {
+              "name": "Chicken Scampi",
+              "description": "Bell peppers and red onions sautéed with chicken tenderloins in a creamy scampi sauce. Served over angel hair pasta.",
+              "rating": 0,
+              "image": "chickenScampi",
+              "price": 15.49
+            },
+            {
+              "name": "Chicken Parmigiana",
+              "description": "Two lightly fried parmesan-breaded chicken breasts are smothered with Olive Garden’s homemade marinara sauce and melted Italian cheeses. We serve our Chicken Parmigiana with a side of spaghetti for dinner. Try this classic pairing of Italian comfort foods that will leave you saying 'yum!'",
+              "rating": 0,
+              "image": "chickenParmigiana",
+              "price": 14.99
+            },
+            {
+              "name": "Fettuccine Alfredo",
+              "description": "The key to Olive Garden's rich and creamy alfredo sauce is its freshness. Our chefs make it in house throughout the day with parmesan cheese, heavy cream, and garlic. Served with fettuccine pasta, and even the pickiest eaters can agree this simple Fettuccine Alfredo meal is delightful!",
+              "rating": 0,
+              "image": "fettuccineAlfredo",
+              "price": 12.99
+            },
+            {
+              "name": "Cheese Ravioli",
+              "description": "Filled with a blend of indulgent Italian cheeses, topped with your choice of homemade marinara or meat sauce and melted mozarella.",
+              "rating": 0,
+              "image": "cheeseRavioli",
+              "price": 11.99
+            },
+            {
+              "name": "Seasonal Sicilian Cheesecake",
+              "description": "Our ricotta cheesecake features a shortbread cookie crust and is topped with raspberry drizzle and crumbled almond biscotti.",
+              "rating": 0,
+              "image": "cheeseCake",
+              "price": 6.49
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

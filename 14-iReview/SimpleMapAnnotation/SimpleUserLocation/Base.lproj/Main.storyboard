@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E33e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eNj-ta-LL5">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SimpleUserLocation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KYC-00-Zlo">
+                                <rect key="frame" x="60" y="60" width="480" height="480"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="237" id="Uoi-5H-XYM"/>
+                                    <constraint firstAttribute="width" constant="268" id="jWW-HV-jKE"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Uoi-5H-XYM"/>
+                                        <exclude reference="jWW-HV-jKE"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="v2Z-uv-fYn"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KYC-00-Zlo" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="2Zh-JV-gSm"/>
+                            <constraint firstItem="KYC-00-Zlo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="C2L-jZ-sIY"/>
+                            <constraint firstItem="KYC-00-Zlo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cao-ox-ZKD"/>
+                            <constraint firstItem="KYC-00-Zlo" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="vyz-GH-dTk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lWp-lO-Sr9">
+                        <barButtonItem key="rightBarButtonItem" image="CurrentLocation" id="DJq-He-Tvi">
+                            <connections>
+                                <action selector="updateLocationTapped" destination="BYZ-38-t0r" id="UsE-wT-1xS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="KYC-00-Zlo" id="htz-yu-aZL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117" y="239"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QQy-je-QKh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eNj-ta-LL5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yZq-Je-10b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ksa-G8-r9v"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bWn-e9-Uz4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="239"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CurrentLocation" width="15" height="15"/>
+    </resources>
+</document>
