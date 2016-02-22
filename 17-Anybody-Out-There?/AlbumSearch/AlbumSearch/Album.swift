@@ -1,6 +1,6 @@
 //
 //  Album.swift
-//
+//  AlbumSearch
 //
 //  Created by Phil Wright on 02/21/16.
 //  Copyright © 2016 The Iron Yard. All rights reserved.

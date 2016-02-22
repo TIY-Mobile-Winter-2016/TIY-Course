@@ -1,6 +1,6 @@
 //
 //  APIController.swift
-//
+//  AlbumSearch
 //
 //  Created by Phil Wright on 02/21/16.
 //  Copyright © 2016 The Iron Yard. All rights reserved.
@@ -8,13 +8,12 @@
 
 import Foundation
 
-typealias JSONDictionary = [String:AnyObject]
-typealias JSONArray = [JSONDictionary]
-
 class APIController
 {
-    var delegate: APIControllerProtocol
+    typealias JSONDictionary = [String:AnyObject]
+    typealias JSONArray = [JSONDictionary]
     
+    var delegate: APIControllerProtocol
     
     // MARK: - Initializer
     
@@ -26,7 +25,7 @@ class APIController
     
     func searchItunesFor(searchTerm: String) {
         
-        let itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
+        let itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: .CaseInsensitiveSearch, range: nil)
         
         if let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet()) {
             
@@ -41,7 +40,7 @@ class APIController
                 debugPrint("Task completed")
                 
                 if error != nil {
-                    print(error?.localizedDescription)
+                    debugPrint(error?.localizedDescription)
                 }
                 else {
                     if let dictionary = self.parseJSON(data!) {
