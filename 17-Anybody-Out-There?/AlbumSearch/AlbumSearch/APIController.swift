@@ -31,38 +31,42 @@ class APIController
             
             let urlPath = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=music&entity=album"
             
-            let url = NSURL(string: urlPath)
-            
-            let session = NSURLSession.sharedSession()
-            
-            let task = session.dataTaskWithURL(url!, completionHandler: { data, response, error -> () in
-
-                debugPrint("Task completed")
+            if let url = NSURL(string: urlPath) {
                 
-                if error != nil {
-                    debugPrint(error?.localizedDescription)
-                }
-                else {
-                    if let dictionary = self.parseJSON(data!) {
-                        if let results: NSArray = dictionary["results"] as? NSArray {
-                            self.delegate.didReceiveAPIResults(results)
+                let session = NSURLSession.sharedSession()
+                
+                let task = session.dataTaskWithURL(url, completionHandler: { data, response, error -> () in
+                    
+                    debugPrint("Task completed")
+                    
+                    if error != nil {
+                        debugPrint("An error occurred \(error)")
+                    } else {
+                        if let data = data,
+                            let dictionary = self.parseJSON(data) {
+                                if let results: NSArray = dictionary["results"] as? NSArray {
+                                    self.delegate.didReceiveAPIResults(results)
+                                }
                         }
                     }
-                }
-            })
-            task.resume()
+                })
+                task.resume()
+            } else {
+                debugPrint("The url \(urlPath) was not valid.")
+            }
         }
     }
     
-    func parseJSON(data: NSData) -> NSDictionary?
+    func parseJSON(data: NSData) -> JSONDictionary?
     {
         do {
-            let dictionary: NSDictionary! = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! NSDictionary
-            return dictionary
+            if let dict = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? JSONDictionary {
+                return dict
+            }
         }
         catch let error as NSError {
             debugPrint(error.localizedDescription)
-            return nil
         }
+        return nil
     }
 }
