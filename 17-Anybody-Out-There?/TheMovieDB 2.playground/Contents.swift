@@ -19,6 +19,7 @@ let dateFormatter: NSDateFormatter = {
     return formatter
 }()
 
+
 func jsonParse(data: NSData?) -> JSONDictionary? {
     do {
         if let data = data,
@@ -33,35 +34,65 @@ func jsonParse(data: NSData?) -> JSONDictionary? {
     return nil
 }
 
-struct Movie {
+class Movie {
     
     let movieImageURL = "http://image.tmdb.org/t/p/w500/"
     
-    let posterPath: String?
-    let backdropPath: String?
-    let title: String?
-    let overview: String?
-    let movieID: Int?
-    let voteAverage: Double?
-    let voteCount: Int?
+    var posterPath: String = ""
+    var backdropPath: String = ""
+    var title: String = ""
+    var overview: String = ""
+    var movieID: Int = 0
+    var voteAverage: Double = 0.0
+    var voteCount: Int = 0
     
     typealias JSONDictionary = [String:AnyObject]
+    typealias JSONArray = [AnyObject]
     
-    init(jsonDictionary: JSONDictionary) {
+    init(dict: JSONDictionary) {
         
-        self.movieID = jsonDictionary["id"] as? Int
-        
-        if let path = jsonDictionary["poster_path"] as? String {
-            self.posterPath = "\(movieImageURL)\(path)"
+        if let movieID = dict["id"] as? Int {
+            self.movieID = movieID
         } else {
-            self.posterPath = ""
+            debugPrint("Could not parse id")
         }
         
-        self.backdropPath = jsonDictionary["backgdrop_path"] as? String
-        self.title = jsonDictionary["title"] as? String
-        self.overview = jsonDictionary["overview"] as? String
-        self.voteAverage = jsonDictionary["vote_average"] as? Double
-        self.voteCount = jsonDictionary["vote_count"] as? Int
+        if let path = dict["poster_path"] as? String {
+            self.posterPath = "\(movieImageURL)\(path)"
+        } else {
+            debugPrint("Could not parse poster_path")
+        }
+
+        if let backPath = dict["backdrop_path"] as? String {
+            self.backdropPath = "\(movieImageURL)\(backPath)"
+        } else {
+            debugPrint("Could not parse backdrop_path")
+        }
+
+        if let title = dict["title"] as? String {
+            self.title = title
+        } else {
+            debugPrint("Could not parse title")
+        }
+
+        if let overview = dict["overview"] as? String {
+            self.overview = overview
+        } else {
+            debugPrint("Could not parse overview")
+        }
+
+        if let average = dict["vote_average"] as? Double {
+            self.voteAverage = average
+        } else {
+            debugPrint("Could not parse average")
+        }
+
+        if let voteCount = dict["vote_count"] as? Int {
+            self.voteCount = voteCount
+        } else {
+            debugPrint("Could not parse vote_count")
+        }
+
     }
 }
 
@@ -73,77 +104,29 @@ extension Movie: CustomStringConvertible {
 
 let apiKey = "f51678dcb1e8e91622ee0f91f733ebb2"
 
-let baseURL = "http://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)"
+let baseURLString = "http://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)"
 
-let url = NSURL(string: baseURL)
+let url = NSURL(string: baseURLString)
 
 var moviesArray = [Movie]()
 
 if let url = url {
+    
     let data = NSData(contentsOfURL: url)
     
     let dict = jsonParse(data)
     
+    print(dict)
+    
     if let results = dict?["results"] as? JSONArray {
+        
         for result in results {
             
             if let jsonResult = result as? JSONDictionary {
-                let movie = Movie(jsonDictionary: jsonResult)
-                
-                debugPrint(movie)
-                
+                let movie = Movie(dict: jsonResult)
                 moviesArray.append(movie)
             }
             
-            //print(result)
-            
-            if let movieId = result["id"] as? Int {
-                
-            } else {
-                debugPrint("Could not parse movieID")
-            }
-            
-            if let original_title = result["original_title"] as? String {
-                
-            } else {
-                debugPrint("Could not parse movieID")
-            }
-            
-            if let overview = result["overview"] as? String {
-
-            } else {
-                debugPrint("Could not parse movieID")
-            }
-            
-            if let title = result["title"] as? String {
-                
-            } else {
-                debugPrint("Could not parse movieID")
-            }
-            
-            if let vote_average = result["vote_average"] as? String {
-                
-            } else {
-                debugPrint("Could not parse movieID")
-            }
-            
-            if let vote_count = result["vote_count"] as? Int {
-                
-            } else {
-                debugPrint("Could not parse movieID")
-            }
-            
-            if let poster_path = result["poster_path"] as? String {
-                
-            } else {
-                debugPrint("Could not parse movieID")
-            }
-            
-            if let release_date = result["release_date"] as? String {
-                
-            } else {
-                debugPrint("Could not parse movieID")
-            }
         }
     }
     
@@ -153,7 +136,9 @@ if let url = url {
 moviesArray.count
 
 for movie in moviesArray {
-    print(movie.title!)
+    movie.posterPath
+    print(movie.posterPath)
+    movie.title
 }
 
 
