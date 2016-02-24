@@ -44,9 +44,7 @@ class APIController
                     } else {
                         if let data = data,
                             let dictionary = self.parseJSON(data) {
-                                if let results: NSArray = dictionary["results"] as? NSArray {
-                                    self.delegate.didReceiveAPIResults(results)
-                                }
+                                print(dictionary)
                         }
                     }
                 })

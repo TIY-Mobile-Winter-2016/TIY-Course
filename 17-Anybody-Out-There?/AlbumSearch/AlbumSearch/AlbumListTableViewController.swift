@@ -24,7 +24,7 @@ class AlbumListTableViewController: UITableViewController, APIControllerProtocol
         
         let api = APIController(delegate: self)
         
-        api.searchItunesFor("Beatles")
+        api.searchItunesFor("cannibal corpse")
         
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "AlbumCell")
         
@@ -50,6 +50,9 @@ class AlbumListTableViewController: UITableViewController, APIControllerProtocol
         cell.textLabel?.text = album.title
         
         return cell
+    }
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 44
     }
     
     // MARK: - API Controller Protocol
