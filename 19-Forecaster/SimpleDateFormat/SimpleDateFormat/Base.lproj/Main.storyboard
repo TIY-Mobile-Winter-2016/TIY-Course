@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SimpleDateFormat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZt-2s-Kia">
+                                <rect key="frame" x="20" y="146" width="560" height="33"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Timestamp" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AK4-Ku-LAx">
+                                <rect key="frame" x="234.5" y="54" width="131" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="9f3-QE-8hb"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PZt-2s-Kia" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="2jg-gN-usZ"/>
+                            <constraint firstItem="PZt-2s-Kia" firstAttribute="top" secondItem="AK4-Ku-LAx" secondAttribute="bottom" constant="62" id="5pp-4k-v74"/>
+                            <constraint firstItem="AK4-Ku-LAx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="34" id="6wK-1k-oYL"/>
+                            <constraint firstItem="PZt-2s-Kia" firstAttribute="top" secondItem="AK4-Ku-LAx" secondAttribute="bottom" constant="62" id="9g3-rY-nv8"/>
+                            <constraint firstAttribute="trailing" secondItem="PZt-2s-Kia" secondAttribute="trailing" constant="20" id="QEJ-Hu-ci2"/>
+                            <constraint firstAttribute="trailing" secondItem="PZt-2s-Kia" secondAttribute="trailing" constant="20" id="Zlx-Sc-zZx"/>
+                            <constraint firstItem="PZt-2s-Kia" firstAttribute="leading" secondItem="AK4-Ku-LAx" secondAttribute="trailing" constant="-235" id="ccl-i0-L0Z"/>
+                            <constraint firstItem="PZt-2s-Kia" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="mc9-iG-lf3"/>
+                            <constraint firstItem="AK4-Ku-LAx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zE9-n0-YNn"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5pp-4k-v74"/>
+                                <exclude reference="QEJ-Hu-ci2"/>
+                                <exclude reference="ccl-i0-L0Z"/>
+                                <exclude reference="mc9-iG-lf3"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="PZt-2s-Kia" id="43N-XX-m7y"/>
+                        <outlet property="timestampTextField" destination="AK4-Ku-LAx" id="dW8-Dc-gkS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="357"/>
+        </scene>
+    </scenes>
+</document>
