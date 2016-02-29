@@ -1,0 +1,29 @@
+APP TRANSPORT in info.plist
+
+---
+
+Spotify API
+
+SEARCH DOCS
+https://developer.spotify.com/web-api/search-item/
+
+BASE_URL
+REQUIRED PARAMETERS:
+
+q=
+type=artist
+
+https://api.spotify.com/v1/search?q=slayer&type=artist
+
+artistID = "1IQ2e1buppatiN1bxUVkrk"
+
+"https://api.spotify.com/v1/artists/\(artistID)/top-tracks?country=US"
+
+EXAMPLE
+https://api.spotify.com/v1/artists/1IQ2e1buppatiN1bxUVkrk/top-tracks?country=US
+
+let items = NSJSONSerialization. as? JSONArray
+
+let itemDict = items.first
+
+let artist = Artist(dict: itemDict)
