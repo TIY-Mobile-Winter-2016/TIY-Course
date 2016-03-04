@@ -1,26 +1,38 @@
+# 24- Star Wars - A New HIG
+
+## Agenda
+
+### Daily Rituals
+* Standup Meeting ~15min
+
+### Topics
+* Reviewing what we have learned so far
+* UICollectionView
+* Core Data introducion
+* Introduction to using Databases and SQL
+* Organizing your data
 
 
-1. UICollectionView
-2. Use the Star Wars API at (http://swapi.co/documentation)
-3. Create two data models
+# Home Star Wars - A New HIG
 
-  1. People (a few properties -- created: NSDate)
+  Create a Star Wars App using the UICollectionView we discussed in class today.
 
+You will need *at least* two data models - 
 
-Include the
+People, (add a few properties but requires created: NSDate)
 
-"created": "2014-12-09T13:50:51.644000Z",
+Make sure you use the NSDateFormatter class to convert the data string returned by the api.
 
-to NSDate
+"created": "2014-12-09T13:50:51.644000Z" to NSDate
 
-4. Detail ViewController
+Create a NavigationController
 
-5. Show Profile
+Create a UITableView with a list of characters.
 
-Organz Folders
+Create a Detail ViewController with text labels for some of the properties.
 
-into
+Ensure you organize your folders in the project. Models, Views, and Controllers at a minimum.
 
-Models
-Views
-Controllers
+Use //MARK - to clarify what sections of your code do what and where -- good commenting practices.
+
+Note: This is a precursor project for our lesson Friday on Core Data.
