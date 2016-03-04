@@ -21,4 +21,5 @@ Weekend project - adding Core Data to your star wars app.
 
 [Core Data From Scratch](http://code.tutsplus.com/series/core-data-and-swift--cms-907)
 
- 
+Ash Furrow
+[Your First Swift App](https://github.com/ashfurrow/yourfirstswiftapp)
