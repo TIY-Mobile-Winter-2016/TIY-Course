@@ -1,0 +1,42 @@
+[
+	{
+		"name": "carrots",
+		"aisle": 4,
+		"category": "produce"
+	},
+	{
+		"name": "tomato soup",
+		"aisle": 6,
+		"category": "canned goods"
+	},
+	{
+		"name": "Frosted Flakes",
+		"aisle": 2,
+		"category": "cereals"
+	},
+	{
+		"name": "Pringles",
+		"aisle": 7,
+		"category": "chips"
+	},
+	{
+		"name": "Tostitos",
+		"aisle": 7,
+		"category": "chips"
+	},
+	{
+		"name": "crab legs",
+		"aisle": 1,
+		"category": "seafood"
+	},
+	{
+		"name": "Minute Rice",
+		"aisle": 2,
+		"category": "dry rice and beans"
+	},
+	{
+		"name": "Boar's Head turkey",
+		"aisle": 9,
+		"category": "deli"
+	}
+]
