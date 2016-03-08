@@ -1,0 +1,6 @@
+1. Github
+2. Setup Xcode Credentials for Github
+3. Pull the Code
+4. Commit your changes
+5. Pull the Code again.
+6. Make sure it runs
