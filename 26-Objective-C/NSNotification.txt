@@ -1,0 +1,7 @@
+[[NSNotificationCenter defaultCenter] addObserver:self
+  selector:@selector(showDialog)
+  name:@"ShowDialog"
+  object:nil];
+
+[[NSNotificationCenter defaultCenter] postNotificationName:@"ShowDialog"
+  object:nil];
