@@ -28,9 +28,16 @@
 
 - (void)loadGroceries
 {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"groceries" ofType:@"json"];
     
-    NSArray *groceriesJSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:NSJSONReadingAllowFragments error:nil];
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    
+    NSURLSession *session = [[NSURLSession sharedSession] init]
+    
+    
+    
+    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:NSJSONReadingAllowFragments error:nil];
+    
+    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:NSJSONReadingAllowFragments error:nil];
     
     for (NSDictionary *aDictionary in groceriesJSON)
     {
