@@ -85,29 +85,30 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
             
             (city:String) -> Bool in
             
-            let nameMatch = city.rangeOfString(searchText, options:NSStringCompareOptions.CaseInsensitiveSearch)
+            let nameMatch = city.rangeOfString(searchText, options:.CaseInsensitiveSearch)
+            
             return nameMatch != nil
-            })
+        })
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                
-                if(searchActive) {
-                return searchResults.count
-                }
-                return citiesArray.count;
+        
+        if(searchActive) {
+            return searchResults.count
+        }
+        return citiesArray.count;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-                    
-                    let cell = tableView.dequeueReusableCellWithIdentifier("Cell")!
-                    
-                    if(searchActive) {
-        cell.textLabel?.text = searchResults[indexPath.row]
-    } else {
-        cell.textLabel?.text = citiesArray[indexPath.row];
-                    }
-                    return cell;
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")!
+        
+        if(searchActive) {
+            cell.textLabel?.text = searchResults[indexPath.row]
+        } else {
+            cell.textLabel?.text = citiesArray[indexPath.row];
+        }
+        return cell;
     }
     
 }

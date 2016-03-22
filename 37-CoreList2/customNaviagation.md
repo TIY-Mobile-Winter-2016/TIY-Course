@@ -1,3 +1,9 @@
+Note:
+
+[Reference Blog](http://www.folio3.com/blog/change-status-bar-color-ios-app/)
+
+Info.Plist view controller based status bar appearance set to NO
+
 ```
 // Step 1
 UINavigationBar.appearance().barTintColor = UIColor.redColor()
