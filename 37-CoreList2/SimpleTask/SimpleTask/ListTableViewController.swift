@@ -11,23 +11,50 @@ import CoreData
 
 class ListTableViewController: UITableViewController {
     
-    var items = [NSManagedObject]()
+    var tasksArray = [NSManagedObject]()
+    
     let moc = DataController().managedObjectContext
     
-    @IBOutlet var listTableView: UITableView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = "Tasks"
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        let fetchRequest  = NSFetchRequest(entityName: "Task")
+        
+        do {
+            
+            let results = try moc.executeFetchRequest(fetchRequest)
+            
+            if let results = results as? [NSManagedObject] {
+                
+                tasksArray = results
+                
+            }
+            
+        }  catch {
+            
+            print("Fetch Error: \(error)")
+        }
+    }
     
     @IBAction func addButtonPressed(sender: UIBarButtonItem) {
         
-        let ac = UIAlertController(title: "Add", message: "Add a new item", preferredStyle: .Alert)
+        let ac = UIAlertController(title: "Add", message: "Add a new task", preferredStyle: .Alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .Default) {
             (alertAction) -> Void in
             
-            if let textField = ac.textFields?.first, let text = textField.text {
-                self.saveItemName(text)
-                self.listTableView.reloadData()
+            if let textField = ac.textFields?.first,
+                let name = textField.text {
+                    self.saveTask(name)
+                    self.tableView.reloadData()
             }
-            
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
@@ -38,19 +65,23 @@ class ListTableViewController: UITableViewController {
         ac.addTextFieldWithConfigurationHandler { (textField) -> Void in
             
         }
+        
         ac.addAction(saveAction)
+        
         ac.addAction(cancelAction)
+        
         presentViewController(ac, animated: true, completion: nil)
     }
     
     func fetch() {
-        let fetchRequest = NSFetchRequest(entityName: "Item")
+        
+        let fetchRequest = NSFetchRequest(entityName: "Task")
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
             if let fetchResults = try moc.executeFetchRequest(fetchRequest) as? [NSManagedObject] {
-                items = fetchResults
+                tasksArray = fetchResults
             }
             
         } catch {
@@ -60,72 +91,44 @@ class ListTableViewController: UITableViewController {
     }
     
     
-    func saveItemName(itemName: String) {
+    func saveTask(name: String) {
         
-        if let entity = NSEntityDescription.entityForName("Item", inManagedObjectContext: moc) {
+        if let entity = NSEntityDescription.entityForName("Task", inManagedObjectContext: moc) {
             
-            let item = NSManagedObject(entity: entity, insertIntoManagedObjectContext: moc)
-            //
-            item.setValue(itemName, forKey: "name")
+            let task = NSManagedObject(entity: entity, insertIntoManagedObjectContext: moc)
             
-            //
+            task.setValue(name, forKey: "name")
+            
             do {
                 try moc.save()
-                
-                items.append(item)
-                
+                tasksArray.append(task)
             } catch {
-                
-                print("Failed to save \(item). Error: \(error)")
-                
+                print("Failed to save \(task). Error: \(error)")
             }
-        }
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-        //fetch request
-        let fetchRequest  = NSFetchRequest(entityName: "Item")
-        
-        //
-        do {
-            
-            let results = try moc.executeFetchRequest(fetchRequest)
-            
-            if let itemResults = results as? [NSManagedObject] {
-                
-                items = itemResults
-                
-            }
-            
-        }  catch {
-            
-            print("Fetch Error: \(error)")
         }
     }
     
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return items.count
+        
+        return self.tasksArray.count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
-        let item = items[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("TaskCell", forIndexPath: indexPath)
         
-        if let itemName = item.valueForKey("name") as? String {
-            cell.textLabel?.text = itemName
+        let item = self.tasksArray[indexPath.row]
+        
+        if let name = item.valueForKey("name") as? String {
+            cell.textLabel?.text = name
         }
         
         return cell
@@ -141,15 +144,24 @@ class ListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if editingStyle == .Delete {
+            
             // Delete the row from the data source
-            let itemToDelete = items[indexPath.row]
-            moc.deleteObject(itemToDelete)
+            
+            let taskToDelete = tasksArray[indexPath.row]
+            moc.deleteObject(taskToDelete)
+            
+            // Fetch Data Again
             self.fetch()
             
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
         } else if editingStyle == .Insert {
             
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
 }

@@ -11,12 +11,14 @@ import CoreData
 
 class DataController: NSObject {
     
+    let objectModelNameString = "Tasks"
+    
     var managedObjectContext: NSManagedObjectContext
     
     override  init() {
         
         // This resource is the same name as your xcdatamodeld contained in your project.
-        guard let modelURL = NSBundle.mainBundle().URLForResource("myDataModel", withExtension:"momd") else {
+        guard let modelURL = NSBundle.mainBundle().URLForResource(objectModelNameString, withExtension:"momd") else {
             fatalError("Error loading model from bundle")
         }
         
@@ -47,7 +49,7 @@ class DataController: NSObject {
         
         // Use the sqlite database in the documents directory
         
-        let storeURL = docURL.URLByAppendingPathComponent("myDataModel.sqlite")
+        let storeURL = docURL.URLByAppendingPathComponent("\(objectModelNameString).sqlite")
         
         do {
             try psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil)

@@ -28,7 +28,14 @@
                             <outlet property="delegate" destination="hin-bm-1ir" id="eXb-Gx-ace"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Bqh-NO-ErN"/>
+                    <navigationItem key="navigationItem" id="Bqh-NO-ErN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tom-Jl-4bp">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="hin-bm-1ir" id="iPs-Zu-iPw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D6t-Sn-hEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,6 +46,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UPX-M5-XoF" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g56-bk-T4D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
