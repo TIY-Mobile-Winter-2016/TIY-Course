@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var player: AVAudioPlayer?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -33,10 +34,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("\(__FUNCTION__) : Got the Local Notification")
         
-        
+        if let url = NSBundle.mainBundle().URLForResource("photon", withExtension: "caf") {
+            playSound(url)
+        } else {
+            print("Could find file photon")
+        }
         
     }
-
+    
+    func playSound(url: NSURL) {
+        
+        do {
+            let newPlayer = try AVAudioPlayer(contentsOfURL: url, fileTypeHint: nil)
+            
+            newPlayer.numberOfLoops = 1
+            newPlayer.prepareToPlay()
+            newPlayer.play()
+            
+            self.player = newPlayer
+            
+        } catch let error as NSError {
+            print(error.description)
+        }
+    }
 
 }
 

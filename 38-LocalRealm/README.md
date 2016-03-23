@@ -22,17 +22,18 @@ if let url = NSBundle.mainBundle().URLForResource("name", withExtension: "caf") 
 }
 
 func playSound(url: NSURL) {
-
-    var player = AVAudioPlayer()
-
-
-    do { player = try AVAudioPlayer(contentsOfURL: url, fileTypeHint: nil) }
-    catch let error as NSError { print(error.description) }
-
-    player.numberOfLoops = 1
-    player.prepareToPlay()
-    player.play()
-}
+        
+        do {
+            let player = try AVAudioPlayer(contentsOfURL: url, fileTypeHint: nil)
+            
+            player.numberOfLoops = 1
+         	player.prepareToPlay()
+            player.play()
+            
+        } catch let error as NSError {
+            print(error.description)
+        }
+    }
 
 ```
 
