@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     
     @IBOutlet weak var countLabel: UILabel!
     
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func startNotify() {
-    
+        
         count = 5
         
         self.countLabel.text = "\(count)"
@@ -31,16 +31,22 @@ class ViewController: UIViewController {
         let notification = UILocalNotification()
         
         notification.alertTitle = "Hello World"
+        
         notification.alertBody = "This is the body of the notification"
         
         notification.fireDate = NSDate().dateByAddingTimeInterval(5)
         
-        notification.applicationIconBadgeNumber = 5
+        notification.soundName = "photon.caf"
         
-
+        notification.applicationIconBadgeNumber += 1
+        
+        
         self.countLabel.text = "5"
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
+        
         
         self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateCount", userInfo: nil, repeats: true)
         
@@ -59,7 +65,7 @@ class ViewController: UIViewController {
         }
         self.countLabel.text = "\(count)"
     }
-
-
+    
+    
 }
 

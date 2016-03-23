@@ -12,15 +12,23 @@ import RealmSwift
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-
+    
     let realm = try! Realm()
     
     var personsArray = [Person]()
     
+    var starshipsArray = [Starship]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadPersons()
+        
+        //seedPeople()
+        
+        //loadPersons()
+        
+        
+        //        loadStarships()
         
         // queryPersons()
     }
@@ -37,7 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
         let person = self.personsArray[indexPath.row]
-
+        
         cell.textLabel?.text = person.name
         
         return cell
@@ -45,7 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func seedPeople() {
-    
+        
         let luke = Person()
         luke.name = "Luke Skywalker"
         luke.createdAt = NSDate()
@@ -53,10 +61,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let starship = Starship()
         starship.name = "X-wing"
         starship.createdAt = NSDate()
+        starship.person = luke
         
         let starship2 = Starship()
         starship2.name = "Millennium Falcon"
         starship2.createdAt = NSDate()
+        starship2.person = luke
         
         luke.starships.append(starship)
         luke.starships.append(starship2)
@@ -71,7 +81,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func savePerson(name: String) {
+    func savePerson(name: String) -> Person {
         
         let person = Person()
         person.name = name
@@ -80,12 +90,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         do {
             try realm.write() { () -> Void in
                 realm.add(person)
-                
                 self.loadPersons()
             }
         } catch {
             print("An error occurred writing \(person.name)")
         }
+        
+        return person
     }
     
     @IBAction func addPerson() {
@@ -121,7 +132,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func loadPersons() {
-    
+        
         let persons = realm.objects(Person)
         
         self.personsArray.removeAll()
@@ -152,18 +163,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // Query using an NSPredicate
         let predicate = NSPredicate(format: "name BEGINSWITH %@", "P")
+        
         persons = realm.objects(Person).filter(predicate)
         
         self.personsArray.removeAll()
         
         for p in persons {
+            
             self.personsArray.append(p)
+            
+            for s in p.starships {
+                print(s.name)
+            }
         }
         
         self.tableView.reloadData()
     }
-
-
-
+    
+    
+    
 }
 

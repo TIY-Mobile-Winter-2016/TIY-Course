@@ -12,5 +12,5 @@ class Starship: Object {
     
     dynamic var name = ""
     dynamic var createdAt = NSDate()
-    
+    dynamic var person: Person?
 }
