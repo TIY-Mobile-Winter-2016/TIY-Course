@@ -11,6 +11,30 @@
 
 * Local Notifications
 * Realm Mobile Database
+* Play a sound
+
+```swift
+
+import AVFoundation
+
+if let url = NSBundle.mainBundle().URLForResource("name", withExtension: "caf") {
+  playSound(url)
+}
+
+func playSound(url: NSURL) {
+
+    var player = AVAudioPlayer()
+
+
+    do { player = try AVAudioPlayer(contentsOfURL: url, fileTypeHint: nil) }
+    catch let error as NSError { print(error.description) }
+
+    player.numberOfLoops = 1
+    player.prepareToPlay()
+    player.play()
+}
+
+```
 
 # Resources
 
@@ -20,4 +44,3 @@
 [Local Notifications Part 1](http://jamesonquave.com/blog/local-notifications-in-ios-8-with-swift-part-1/)
 [Local Notifications Part 2](http://jamesonquave.com/blog/local-notifications-in-ios-8-with-swift-part-2/)
 [Realm Swift Documentation](https://realm.io/docs/swift/latest/)
-
