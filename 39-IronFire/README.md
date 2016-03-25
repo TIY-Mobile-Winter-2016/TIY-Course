@@ -11,7 +11,12 @@
 
 * All about Firebase
 
+### Homework
+
+IronFire
+
 # Resources
 
 [Firebase Guide iOS](https://www.firebase.com/docs/ios/guide/setup.html)
+[iOS Swift - Firebase Demo](http://rshankar.com/ios-swift-firebase-demo/)
 
