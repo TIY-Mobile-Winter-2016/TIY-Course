@@ -9,24 +9,52 @@
 import UIKit
 import Firebase
 
-class FireFile {
+class User {
+
+    var email: String = ""
+    var password: String = ""
+    var authData: String = ""
     
-    var image: UIImage?
-    var data: NSData = NSData()
-    
-    var fileRef = Firebase(url: "https://ironfire.firebaseio.com/firefile")
+    var userRef = Firebase(url: "https://ironfire.firebaseio.com")
     
     init() {
         
     }
     
-    func save() {
+    func createUser() {
         
-        if let image = self.image {
-            data = UIImageJPEGRepresentation(image,0.1)!
-            let base64String = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        // 1
+        self.userRef.createUser(self.email, password: self.password) { (error: NSError!) in
+            
+            // 2
+            if error == nil {
+                print("Created user \(self.email)")
+                self.loginUser()
+                
+            } else {
+                print("An error occurred \(error.localizedDescription)")
+            }
         }
+    
+    }
+    
+    func loginUser() {
         
+        // Authenticate User
+        self.userRef.authUser(self.email, password: self.password,
+                              withCompletionBlock: { (error, auth) -> Void in
+
+                                if error == nil {
+                                    print("user logged in")
+                                    print(auth)
+                                    
+                                    self.authData = String(auth)
+                                    
+                                } else {
+                                    print("An error occurred while logging in user \(self.email)")
+                                }
+        })
+
     }
     
     

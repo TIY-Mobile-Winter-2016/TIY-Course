@@ -11,9 +11,7 @@ import Firebase
 
 class Question {
     
-    var questionKey: String = ""
-    var image: UIImage?
-    var imageBase64: String = ""
+    var key: String = ""
     var title: String = ""
     var answerA: String = ""
     var answerB: String = ""
@@ -28,7 +26,7 @@ class Question {
     
     init(key: String, dict: Dictionary<String, AnyObject>) {
         
-        self.questionKey = key
+        self.key = key
         
         if let title = dict["title"] as? String {
             self.title = title
@@ -50,26 +48,13 @@ class Question {
             self.answerD = answerD
         }
         
-        self.questionRef = self.questionRef.childByAppendingPath(self.questionKey)
+        self.questionRef = self.questionRef.childByAppendingPath(self.key)
         
-    }
-    
-    func addImage(theImage: UIImage) {
-        let data = UIImageJPEGRepresentation(theImage,0.1)!
-        self.imageBase64 = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
-    }
-    
-    func getImage() -> UIImage? {
-        
-        if let decodedData = NSData(base64EncodedString: imageBase64, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters) {
-            return UIImage(data: decodedData)
-        }
-        return nil
     }
     
     func save() {
         
-        let dict: Dictionary<String, AnyObject> = [
+        let dict: [String:AnyObject] = [
             "title": self.title,
             "answerA": self.answerA,
             "answerB": self.answerB,

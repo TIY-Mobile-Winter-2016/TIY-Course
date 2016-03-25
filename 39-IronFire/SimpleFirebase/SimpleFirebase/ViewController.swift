@@ -9,12 +9,14 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
     var questionsArray = [Question]()
     
+    let ref = Firebase(url: "https://ironfire.firebaseio.com")
+    let usersRef = Firebase(url: "https://ironfire.firebaseio.com/online")
     let questionRef = Firebase(url: "https://ironfire.firebaseio.com/questions")
     
     
@@ -22,8 +24,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         
         // THIS IS REQUIRED
-        addQuestionObserver()
+        addFirebaseObservers()
+    
+        let user = User()
         
+        user.email = "phil@touchopia.com"
+        user.password = "123456789"
+        
+        user.loginUser()
         
     }
     
@@ -54,7 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return randomString
     }
     
-    func addQuestionObserver() {
+    func addFirebaseObservers() {
         
         // Add Observer for Questions
         
@@ -75,8 +83,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
         })
-        
-
     }
 
 }
