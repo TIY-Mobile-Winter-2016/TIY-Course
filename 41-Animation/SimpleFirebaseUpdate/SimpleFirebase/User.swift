@@ -11,6 +11,7 @@ import Firebase
 
 class User {
     
+    var key: String = ""
     var email: String = ""
     var password: String = ""
     var authData: String = ""

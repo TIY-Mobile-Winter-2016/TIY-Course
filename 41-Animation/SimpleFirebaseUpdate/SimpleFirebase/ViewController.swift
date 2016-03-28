@@ -9,18 +9,17 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var currentUser: User?
+    var notesArray = [Note]()
     
-    var questionsArray = [Question]()
+    let userRef = Firebase(url: "https://ironfire.firebaseio.com")
     
-    let ref = Firebase(url: "https://ironfire.firebaseio.com")
-    let usersRef = Firebase(url: "https://ironfire.firebaseio.com/online")
-    let questionRef = Firebase(url: "https://ironfire.firebaseio.com/questions")
+    let notesRef = Firebase(url: "https://ironfire.firebaseio.com/notes")
     
+    //MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,51 +36,36 @@ class ViewController: UIViewController {
         
     }
     
-    func seedQuestion() {
-        let q = Question()
-        
-        q.title = self.randomString(16)
-        q.answerA = "A"
-        q.answerB = "B"
-        q.answerC = "C"
-        q.answerD = "D"
-        
-        
-        q.save()
+    //MARK: - Seed Data
+    
+    func seedNote(index: Int) {
+        let n = Note()
+        n.title = "My Note at \(index)"
+        n.isCompleted = false
+        n.save()
     }
     
-    func randomString(length: Int) -> String {
-        
-        let allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let allowedCharsCount = UInt32(allowedChars.characters.count)
-        var randomString = ""
-        
-        for _ in (0..<length) {
-            let randomNum = Int(arc4random_uniform(allowedCharsCount))
-            let newCharacter = allowedChars[allowedChars.startIndex.advancedBy(randomNum)]
-            randomString += String(newCharacter)
-        }
-        
-        return randomString
-    }
     
+    //MARK: - Add Observer
+    
+
     func addFirebaseObservers() {
         
         // Add Observer for Questions
         
-        self.questionRef.observeEventType(.Value, withBlock: { snapshot in
+        self.notesRef.observeEventType(.Value, withBlock: { snapshot in
             
             print(snapshot.value)
             
-            self.questionsArray = []
+            self.notesArray = []
             
             if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
                 
                 for snap in snapshots {
                     if let dict = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
-                        let question = Question(key: key, dict: dict)
-                        self.questionsArray.insert(question, atIndex: 0)
+                        let note = Note(key: key, dict: dict)
+                        self.notesArray.insert(note, atIndex: 0)
                     }
                 }
             }
