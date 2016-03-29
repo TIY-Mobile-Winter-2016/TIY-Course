@@ -78,6 +78,8 @@ class ViewController: UIViewController {
         }
     }
     
+
+    
     //MARK: - Action Methods
     
     @IBAction func didPressTakePhoto(sender: UIButton) {

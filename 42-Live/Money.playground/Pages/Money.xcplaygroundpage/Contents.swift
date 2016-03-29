@@ -1,8 +1,9 @@
-//: Playground - noun: a place where people can play
+//: Money
 
 import UIKit
 
 enum Currency {
+    
     case USD
     case EUR
     case AUD
